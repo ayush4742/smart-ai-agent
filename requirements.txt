@@ -16,6 +16,4 @@ groq==0.15.0
 pydantic==2.10.5
 httpx==0.28.1
 requests==2.32.3
-tiktoken==0.8.0git add requirements.txt
-git commit -m "Use minimal production requirements"
-git push
+tiktoken==0.8.0

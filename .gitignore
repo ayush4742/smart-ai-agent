@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Conda
+.envrc
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db

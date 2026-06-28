@@ -1,98 +1,280 @@
-# Project Setup Guide
+# 🤖 Smart AI Agent using LangGraph, FastAPI & Streamlit
 
-This guide provides step-by-step instructions to set up your project environment, including setting up a Python virtual environment using Pipenv, pip, or conda.
+> A production-ready AI chatbot built using **LangGraph**, **FastAPI**, and **Streamlit** with support for **OpenAI**, **Groq**, and **Tavily Web Search**.
 
-## Table of Contents
+---
 
-1. [Setting Up a Python Virtual Environment](#setting-up-a-python-virtual-environment)
-   - [Using Pipenv](#using-pipenv)
-   - [Using pip and venv](#using-pip-and-venv)
-   - [Using Conda](#using-conda)
-2. [Running the application](#project-phases-and-python-commands)
+## 🚀 Live Demo
 
+### 🌐 Frontend
 
-## Setting Up a Python Virtual Environment
+> https://smart-ai-agent.streamlit.app
 
-### Using Pipenv
-1. **Install Pipenv (if not already installed):**  
+### ⚡ Backend API
+
+> https://smart-ai-agent-api.onrender.com/docs
+
+---
+
+# 📌 Overview
+
+Smart AI Agent is an intelligent chatbot that allows users to interact with multiple Large Language Models through a clean web interface.
+
+Users can:
+
+* 🤖 Choose between OpenAI and Groq models
+* 🌍 Enable or disable real-time web search
+* 🎯 Define custom system prompts
+* 💬 Ask any question
+* ⚡ Receive AI-generated responses instantly
+
+The backend is built using **FastAPI** and **LangGraph**, while the frontend is developed with **Streamlit**.
+
+---
+
+# ✨ Features
+
+* ✅ Multiple AI Providers
+
+  * OpenAI GPT-4o Mini
+  * Groq Llama 3.3 70B
+  * Groq Mixtral 8x7B
+
+* ✅ LangGraph ReAct Agent
+
+* ✅ Optional Web Search using Tavily
+
+* ✅ Custom System Prompt
+
+* ✅ FastAPI REST API
+
+* ✅ Streamlit User Interface
+
+* ✅ Cloud Deployment
+
+* ✅ Environment Variable Support
+
+* ✅ Clean Modular Code
+
+---
+
+# 🛠 Tech Stack
+
+| Category      | Technologies             |
+| ------------- | ------------------------ |
+| Language      | Python                   |
+| Frontend      | Streamlit                |
+| Backend       | FastAPI                  |
+| AI Framework  | LangGraph                |
+| LLM Framework | LangChain                |
+| OpenAI Models | GPT-4o Mini              |
+| Groq Models   | Llama 3.3 70B, Mixtral   |
+| Search Tool   | Tavily Search API        |
+| Deployment    | Render + Streamlit Cloud |
+
+---
+
+# 📂 Project Structure
+
 ```
-pip install pipenv
-```
-
-2. **Install Dependencies with Pipenv:** 
-
-```
-pipenv install
-```
-
-3. **Activate the Virtual Environment:** 
-
-```
-pipenv shell
+smart-ai-agent
+│
+├── ai_agent.py
+├── backend.py
+├── frontend.py
+├── requirements.txt
+├── runtime.txt
+└── README.md
 ```
 
 ---
 
-### Using `pip` and `venv`
-#### Create a Virtual Environment:
-```
-python -m venv venv
-```
+# ⚙️ System Architecture
 
-#### Activate the Virtual Environment:
-**macOS/Linux:**
 ```
-source venv/bin/activate
-```
-
-**Windows:**
-```
-venv\Scripts\activate
-```
-
-#### Install Dependencies:
-```
-pip install -r requirements.txt
+                User
+                  │
+                  ▼
+         Streamlit Frontend
+                  │
+                  ▼
+           FastAPI Backend
+                  │
+                  ▼
+        LangGraph ReAct Agent
+         │               │
+         ▼               ▼
+     OpenAI           Groq
+         │
+         ▼
+     Tavily Search (Optional)
 ```
 
 ---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/ayush4742/smart-ai-agent.git
+
+cd smart-ai-agent
+```
+
+---
+
+## Create Virtual Environment
 
 ### Using Conda
-#### Create a Conda Environment:
-```
-conda create --name myenv python=3.11
+
+```bash
+conda create -n aiagent python=3.11
+
+conda activate aiagent
 ```
 
-#### Activate the Conda Environment:
-```
-conda activate myenv
-```
+---
 
-#### Install Dependencies:
-```
+## Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
+---
 
-# Project Phases and Python Commands
+# 🔑 Environment Variables
 
-## Phase 1: Create AI Agent
+Create a **.env** file.
+
 ```
-python ai_agent.py
+OPENAI_API_KEY=your_openai_key
+
+GROQ_API_KEY=your_groq_key
+
+TAVILY_API_KEY=your_tavily_key
 ```
 
-## Phase 2: Setup Backend with FastAPI
-```
+---
+
+# ▶️ Run Backend
+
+```bash
 python backend.py
 ```
 
-## Phase 3: Setup Frontend with Streamlit
+Backend URL
+
 ```
-python frontend.py
+http://127.0.0.1:9999
 ```
 
-## IMPORTANT
-### Make sure backend python script is running in a separate terminal
+Swagger API
+
+```
+http://127.0.0.1:9999/docs
+```
+
+---
+
+# ▶️ Run Frontend
+
+```bash
+streamlit run frontend.py
+```
+
+---
+
+# 🧠 Supported Models
+
+## OpenAI
+
+* GPT-4o Mini
+
+## Groq
+
+* Llama 3.3 70B Versatile
+* Mixtral 8x7B
+
+---
+
+# 🌍 Web Search
+
+The application supports optional real-time web search using **Tavily Search API**.
+
+Users can enable or disable web search from the UI.
+
+---
+
+# 📡 API Endpoint
+
+### POST
+
+```
+/chat
+```
+
+Example Request
+
+```json
+{
+  "model_name":"gpt-4o-mini",
+  "model_provider":"OpenAI",
+  "system_prompt":"You are a helpful AI assistant",
+  "messages":["Explain LangGraph"],
+  "allow_search":true
+}
+```
+
+---
 
 
+# 🎯 Future Improvements
 
+* Chat History
+* Conversation Memory
+* PDF Question Answering (RAG)
+* Voice Input
+* Text-to-Speech
+* Authentication
+* Image Understanding
+* Multi-Agent Workflow
+* Streaming Responses
+
+---
+
+# 💼 Skills Demonstrated
+
+* Generative AI
+* LangGraph
+* LangChain
+* Prompt Engineering
+* REST API Development
+* FastAPI
+* Streamlit
+* LLM Integration
+* OpenAI API
+* Groq API
+* Tavily Search API
+* Cloud Deployment
+* Environment Variables
+* Git & GitHub
+
+---
+
+# 👨‍💻 Author
+
+**Ayush Kumar**
+
+B.Tech CSE (Data Science)
+
+GitHub:
+https://github.com/ayush4742
+
+LinkedIn:
+(https://www.linkedin.com/in/ayush-kumar-2ba43b289/)
+
+---
+
+# ⭐ If you found this project useful, consider giving it a Star!
